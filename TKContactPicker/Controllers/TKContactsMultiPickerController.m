@@ -122,10 +122,12 @@
                 switch (j) {
                     case 0: {// Phone number
                         contact.tel = [(NSString*)value telephoneWithReformat];
+                        [contact.tels addObject:[(NSString *)value telephoneWithReformat]];
                         break;
                     }
                     case 1: {// Email
                         contact.email = (NSString*)value;
+                        [contact.emails addObject:(NSString *)value];
                         break;
                     }
                 }

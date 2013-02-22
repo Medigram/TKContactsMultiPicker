@@ -14,7 +14,9 @@
     BOOL rowSelected;
     NSString *name;
     NSString *email;
+    NSMutableArray *emails;
     NSString *tel;
+    NSMutableArray *tels;
     UIImage *thumbnail;
     
     // Add Steph-Fongo (Thanks!)
@@ -28,12 +30,16 @@
 @property BOOL rowSelected;
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *email;
+@property (nonatomic, retain) NSMutableArray *emails;
 @property (nonatomic, retain) NSString *tel;
+@property (nonatomic, retain) NSMutableArray *tels;
 @property (nonatomic, retain) UIImage *thumbnail;
 @property (nonatomic, retain) NSString *lastName;
 @property (nonatomic, retain) NSString *firstName;
 
 - (NSString*)sorterFirstName;
 - (NSString*)sorterLastName;
+
+- (NSDictionary *)contactAsDictionary;
 
 @end

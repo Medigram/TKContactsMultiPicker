@@ -44,7 +44,7 @@
 
 - (void)presentContactsMultiPickerController
 {
-    _addressBook = ABAddressBookCreate();
+    _addressBook = ABAddressBookCreateWithOptions(NULL, NULL);
     
     TKContactsMultiPickerController *contactMultiController = [[TKContactsMultiPickerController alloc] initWithGroup:nil];
     contactMultiController.delegate = self;

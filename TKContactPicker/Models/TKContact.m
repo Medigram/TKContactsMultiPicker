@@ -9,13 +9,25 @@
 #import "TKContact.h"
 
 @implementation TKContact
-@synthesize name, email, tel, thumbnail, recordID, sectionNumber, rowSelected, lastName, firstName;
+@synthesize name, email, emails, tel, tels, thumbnail, recordID, sectionNumber, rowSelected, lastName, firstName;
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        emails = [[NSMutableArray alloc] init];
+        tels = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
 
 - (void)dealloc
 {
     [name release];
     [email release];
+    [emails release];
     [tel release];
+    [tels release];
     [thumbnail release];
     [lastName release];
     [firstName release];
@@ -47,6 +59,17 @@
         return name;
     }
     return nil;
+}
+
+- (NSDictionary *)contactAsDictionary
+{
+    NSMutableDictionary *results = [[[NSMutableDictionary alloc] init] autorelease];
+    if (self.name) {
+        [results setObject:[self.name autorelease] forKey:@"name"];
+    }
+    [results setObject:[self.emails autorelease] forKey:@"emails"];
+    [results setObject:[self.tels autorelease] forKey:@"phones"];
+    return results;
 }
 
 @end
