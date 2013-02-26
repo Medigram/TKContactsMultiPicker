@@ -313,7 +313,7 @@
     [button setSelected:contact.rowSelected];
     
 	cell.accessoryView = button;
-	
+    
 	return cell;
 }
 
@@ -368,7 +368,12 @@
 	
 	if (indexPath != nil)
 	{
-		[self tableView:self.tableView accessoryButtonTappedForRowWithIndexPath:indexPath];
+        if (self.searchDisplayController.isActive) {
+            [self tableView:self.searchDisplayController.searchResultsTableView accessoryButtonTappedForRowWithIndexPath:indexPath];
+        } else {
+            [self tableView:self.tableView accessoryButtonTappedForRowWithIndexPath:indexPath];
+        }
+		
 	}
 }
 
@@ -403,9 +408,16 @@
 #pragma mark -
 #pragma mark UISearchBarDelegate
 
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    if ([searchText isEqualToString:@""]) {
+        [self searchBarCancelButtonClicked:searchBar];
+    }
+}
+
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)_searchBar
 {
-	[self.searchDisplayController.searchBar setShowsCancelButton:NO];
+	[self.searchDisplayController.searchBar setShowsCancelButton:YES];
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)_searchBar
