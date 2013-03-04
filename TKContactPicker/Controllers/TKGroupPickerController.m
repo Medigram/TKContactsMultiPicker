@@ -69,7 +69,6 @@
 {
     [super viewDidLoad];
     
-    [self.navigationItem setLeftBarButtonItem:[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addGroup:)] autorelease]];
     [self.navigationItem setRightBarButtonItem:[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(dismissAction:)] autorelease]];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
     
@@ -152,11 +151,6 @@
 
 #pragma mark -
 #pragma mark Barbutton action
-
-- (IBAction)addGroup:(id)sender
-{
-    // The future will be added
-}
 
 - (IBAction)dismissAction:(id)sender
 {
