@@ -41,5 +41,6 @@
 @property (nonatomic) BOOL searchWasActive;
 
 - (id)initWithGroup:(TKGroup*)group;
+- (void)reloadAddressBook;
 
 @end

@@ -89,6 +89,9 @@
         }
     }
     
+    [self.contactController reloadAddressBook];
+    DLog(@"Initalizing and grabbing addressbook");
+    
     return self;
 }
 
