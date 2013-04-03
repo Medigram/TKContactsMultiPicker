@@ -212,7 +212,7 @@
 	self.searchDisplayController.searchResultsTableView.scrollEnabled = YES;
 	self.searchDisplayController.searchBar.showsCancelButton = NO;
 
-    [self reloadAddressBook];
+    //[self reloadAddressBook];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
